@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía para Crear tu Sitio Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-button.active {
+            background-color: #06b6d4;
+            color: white;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .ai-tool-card {
+            background-color: #1f2937;
+            color: #d1d5db;
+        }
+        .ai-tool-card input {
+            background-color: #374151;
+            border-color: #4b5563;
+            color: #f3f4f6;
+        }
+        .ai-tool-card input::placeholder {
+            color: #6b7280;
+        }
+        .ai-tool-card button {
+            box-shadow: 0 0 10px #3b82f6;
+            transition: all 0.3s ease-in-out;
+        }
+        .ai-tool-card button:hover {
+            box-shadow: 0 0 15px #3b82f6, 0 0 20px #3b82f6;
+        }
+        .ai-tool-card .copy-button {
+            background-color: #4b5563;
+            color: white;
+        }
+        .ai-tool-card .copy-button:hover {
+            background-color: #6b7280;
+        }
+        .ai-hero-background {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M-1 0 L101 0 L101 101 L-1 101 Z" fill="black" /><g stroke="rgba(255, 255, 255, 0.1)" stroke-width="0.1"><path d="M0 0 L100 0 L100 100 L0 100 Z" fill="none" /><g transform="translate(50,50)"><path d="M-50 0 L50 0 M0 -50 L0 50" /></g><g transform="translate(50,50) rotate(45)"><path d="M-50 0 L50 0 M0 -50 L0 50" /></g><g transform="translate(50,50) rotate(22.5)"><path d="M-50 0 L50 0 M0 -50 L0 50" /></g><g transform="translate(50,50) rotate(67.5)"><path d="M-50 0 L50 0 M0 -50 L0 50" /></g><g stroke-width="0.2"><circle cx="0" cy="0" r="10" /><circle cx="0" cy="0" r="20" /><circle cx="0" cy="0" r="30" /><circle cx="0" cy="0" r="40" /><circle cx="0" cy="0" r="50" /></g></g></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-100">Guía para Crear tu Sitio Web</h1>
+            <p class="text-xl text-gray-400 mt-2">Paso a paso para principiantes sin saber programar</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="mb-8">
+            <div class="flex flex-wrap justify-center space-x-2 md:space-x-4 bg-gray-800 p-2 rounded-lg shadow-inner">
+                <button id="nav-inicio" class="nav-button active px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-200 text-gray-200">Inicio</button>
+                <button id="nav-step1" class="nav-button px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-200 text-gray-200">1. Herramientas</button>
+                <button id="nav-step2" class="nav-button px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-200 text-gray-200">2. Dominio</button>
+                <button id="nav-step3" class="nav-button px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-200 text-gray-200">3. Publicación</button>
+                <button id="nav-step4" class="nav-button px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-200 text-gray-200">4. Herramientas con IA</button>
+            </div>
+        </nav>
+
+        <!-- Content Sections -->
+        <main class="bg-gray-800 p-6 md:p-10 rounded-xl shadow-lg border border-gray-700">
+            
+            <!-- Intro Section -->
+            <section id="content-inicio" class="content-section active">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mb-4">¡Bienvenido a la guía!</h2>
+                <p class="text-base text-gray-300 leading-relaxed">
+                    Esta guía es para ti si quieres crear un sitio web profesional y funcional sin necesidad de escribir una sola línea de código. Te llevaremos de la mano por tres pasos esenciales, desde la elección de la plataforma adecuada hasta la publicación de tu proyecto.
+                </p>
+                <div class="mt-6 p-4 bg-gray-900 rounded-lg border-l-4 border-cyan-500">
+                    <p class="text-sm font-medium text-gray-300">
+                        <span class="font-bold text-cyan-400">Dato útil:</span> La mayoría de las personas que quieren iniciar un proyecto en línea no lo hacen por la falta de información o por miedo a empezar. Esta guía simplifica el proceso para que puedas lanzar tu proyecto en solo 3 días. ¡Atrévete a crear!
+                    </p>
+                </div>
+            </section>
+
+            <!-- Step 1: Tools -->
+            <section id="content-step1" class="content-section">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mb-4">1. Elige tu herramienta</h2>
+                <p class="text-base text-gray-300 leading-relaxed mb-6">
+                    Las plataformas de creación de sitios web te permiten construir y gestionar tu sitio sin necesidad de conocimientos técnicos. Aquí comparamos tres de las más populares.
+                </p>
+
+                <!-- Cards for Platforms -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Wix Card -->
+                    <div class="bg-gray-900 rounded-lg shadow-md p-6 border border-gray-700 transition-transform transform hover:scale-105">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Wix</h3>
+                        <p class="text-sm text-gray-400 mb-4">El rey del "arrastrar y soltar".</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-bold text-green-500">Pros:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Editor intuitivo.</li>
+                                    <li>Gran variedad de plantillas.</li>
+                                    <li>Apps integradas para funcionalidades extra.</li>
+                                    <li>Editor de IA para crear sitios rápidamente.</li>
+                                    <li>Sin necesidad de código.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-red-500">Contras:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Sitios gratuitos con anuncios.</li>
+                                    <li>No se puede cambiar de plantilla.</li>
+                                    <li>Menos control sobre SEO.</li>
+                                    <li>Estructura de la web menos flexible.</li>
+                                    <li>Es más caro que otros competidores.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Squarespace Card -->
+                    <div class="bg-gray-900 rounded-lg shadow-md p-6 border border-gray-700 transition-transform transform hover:scale-105">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Squarespace</h3>
+                        <p class="text-sm text-gray-400 mb-4">Diseño limpio y profesional.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-bold text-green-500">Pros:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Plantillas de alta calidad.</li>
+                                    <li>Editor de IA para crear sitios rápidamente.</li>
+                                    <li>Herramientas de SEO integradas.</li>
+                                    <li>Soporte 24/7.</li>
+                                    <li>Seguridad y mantenimiento automáticos.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-red-500">Contras:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Curva de aprendizaje inicial.</li>
+                                    <li>Menos opciones de personalización.</li>
+                                    <li>Sitios menos flexibles.</li>
+                                    <li>Limitaciones en el editor.</li>
+                                    <li>Es más caro que otros competidores.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- WordPress.com Card -->
+                    <div class="bg-gray-900 rounded-lg shadow-md p-6 border border-gray-700 transition-transform transform hover:scale-105">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">WordPress.com</h3>
+                        <p class="text-sm text-gray-400 mb-4">Flexible y con muchas posibilidades.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-bold text-green-500">Pros:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Gran variedad de plugins y temas.</li>
+                                    <li>Control total sobre tu sitio.</li>
+                                    <li>Comunidad de soporte enorme.</li>
+                                    <li>La web de IA te permite crear un sitio en minutos.</li>
+                                    <li>Escalabilidad ilimitada.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-red-500">Contras:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Curva de aprendizaje más alta.</li>
+                                    <li>Necesitas gestionar actualizaciones.</li>
+                                    <li>La versión .com es limitada.</li>
+                                    <li>Soporte técnico menos accesible.</li>
+                                    <li>Puede ser más caro.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <h3 class="text-2xl font-bold text-gray-100 mb-4">Costo anual estimado de planes básicos</h3>
+                    <div class="chart-container">
+                        <canvas id="cost-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Domain -->
+            <section id="content-step2" class="content-section">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mb-4">2. Elige tu dominio</h2>
+                <p class="text-base text-gray-300 leading-relaxed mb-6">
+                    Un dominio es la dirección única de tu sitio web, como `ejemplo.com`. Es vital para tu marca y para que los usuarios te encuentren.
+                </p>
+                
+                <h3 class="text-xl font-bold text-gray-100 mb-2">¿Dominio propio o subdominio?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-gray-900 rounded-lg p-6 border-l-4 border-cyan-500">
+                        <h4 class="font-bold text-cyan-400 text-lg">Dominio propio: <span class="font-normal text-gray-300">tunegocio.com</span></h4>
+                        <p class="text-sm text-gray-400 mt-2">Te da una imagen profesional y de confianza. La gente asocia tu marca directamente con la dirección web.</p>
+                    </div>
+                    <div class="bg-gray-900 rounded-lg p-6 border-l-4 border-red-500">
+                        <h4 class="font-bold text-red-500 text-lg">Subdominio gratuito: <span class="font-normal text-gray-300">tunegocio.wixsite.com</span></h4>
+                        <p class="text-sm text-gray-400 mt-2">Es ideal para empezar, pero puede parecer menos profesional y no tienes el control total sobre la dirección.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-100 mb-4">Plataformas para comprar dominios</h3>
+                <p class="text-base text-gray-300 leading-relaxed mb-6">
+                    Existen muchas plataformas para adquirir tu dominio. Aquí te mostramos 5 de las más sencillas y económicas, ordenadas por precio (ejemplo, en pesos mexicanos). Los precios pueden variar.
+                </p>
+
+                <div class="space-y-6">
+                    <!-- Platform 1 -->
+                    <div class="bg-gray-900 rounded-lg p-6 border border-gray-700 shadow-sm">
+                        <h4 class="text-lg font-bold text-cyan-400">1. Namecheap</h4>
+                        <p class="text-sm text-gray-300 mt-1 mb-3">Precio aproximado: $160 MXN/año.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-bold text-green-500">Ventajas:</h5>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Precio muy competitivo.</li>
+                                    <li>Protección de privacidad WhoisGuard gratuita.</li>
+                                    <li>Fácil de usar para principiantes.</li>
+                                    <li>Soporte técnico 24/7.</li>
+                                    <li>Variedad de dominios y extensiones.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-red-500">Desventajas:</h5>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>A veces la renovación es más cara.</li>
+                                    <li>Interfaz puede ser menos moderna.</li>
+                                    <li>No ofrece la gama completa de servicios de hosting.</li>
+                                    <li>Aumentos de precios inesperados en la renovación.</li>
+                                    <li>El chat de soporte puede ser lento.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Platform 2 -->
+                    <div class="bg-gray-900 rounded-lg p-6 border border-gray-700 shadow-sm">
+                        <h4 class="text-lg font-bold text-cyan-400">2. GoDaddy</h4>
+                        <p class="text-sm text-gray-300 mt-1 mb-3">Precio aproximado: $170 MXN/año.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-bold text-green-500">Ventajas:</h5>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Marca muy reconocida.</li>
+                                    <li>Herramientas de marketing integradas.</li>
+                                    <li>Interfaz sencilla para principiantes.</li>
+                                    <li>Ofertas y promociones frecuentes.</li>
+                                    <li>Soporte al cliente en varios idiomas.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-red-500">Desventajas:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Precios de renovación altos.</li>
+                                    <li>Venta de servicios adicionales no deseados.</li>
+                                    <li>Costo extra por privacidad de dominio.</li>
+                                    <li>Mala reputación por spam y anuncios.</li>
+                                    <li>Soporte al cliente por teléfono es difícil de conseguir.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Platform 3 -->
+                    <div class="bg-gray-900 rounded-lg p-6 border border-gray-700 shadow-sm">
+                        <h4 class="text-lg font-bold text-cyan-400">3. Hostinger</h4>
+                        <p class="text-sm text-gray-300 mt-1 mb-3">Precio aproximado: $185 MXN/año.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-bold text-green-500">Ventajas:</h5>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Planes de hosting económicos.</li>
+                                    <li>Interfaz de usuario muy limpia y moderna.</li>
+                                    <li>Hosting con certificado SSL gratuito.</li>
+                                    <li>Atención al cliente 24/7.</li>
+                                    <li>Garantía de devolución de dinero de 30 días.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-red-500">Desventajas:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Sin protección de privacidad de dominio.</li>
+                                    <li>El plan básico es limitado.</li>
+                                    <li>Precios de renovación más altos.</li>
+                                    <li>La atención al cliente en chat es lenta.</li>
+                                    <li>Costo de la renovación es 5 veces más que la compra.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Platform 4 -->
+                    <div class="bg-gray-900 rounded-lg p-6 border border-gray-700 shadow-sm">
+                        <h4 class="text-lg font-bold text-cyan-400">4. Domain.com</h4>
+                        <p class="text-sm text-gray-300 mt-1 mb-3">Precio aproximado: $200 MXN/año.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-bold text-green-500">Ventajas:</h5>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Plataforma fácil de usar.</li>
+                                    <li>Gran variedad de extensiones de dominio.</li>
+                                    <li>Herramientas de marketing por correo electrónico.</li>
+                                    <li>Precios competitivos para la compra inicial.</li>
+                                    <li>Soporte técnico 24/7.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-red-500">Desventajas:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Precios de renovación altos.</li>
+                                    <li>Servicios de privacidad de dominio con costo extra.</li>
+                                    <li>No tiene muchas características avanzadas.</li>
+                                    <li>El soporte al cliente por chat es muy lento.</li>
+                                    <li>Aumentos de precios inesperados en la renovación.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Platform 5 -->
+                    <div class="bg-gray-900 rounded-lg p-6 border border-gray-700 shadow-sm">
+                        <h4 class="text-lg font-bold text-cyan-400">5. Bluehost</h4>
+                        <p class="text-sm text-gray-300 mt-1 mb-3">Precio aproximado: $210 MXN/año (a menudo gratis con hosting).</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-bold text-green-500">Ventajas:</h5>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Dominio gratis con la compra de hosting.</li>
+                                    <li>Plataforma optimizada para WordPress.</li>
+                                    <li>Atención al cliente de calidad.</li>
+                                    <li>Interfaz intuitiva para principiantes.</li>
+                                    <li>Soporte técnico 24/7.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-red-500">Desventajas:</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-300 mt-1 space-y-1">
+                                    <li>Servicio de hosting puede ser más caro.</li>
+                                    <li>Precios de renovación altos.</li>
+                                    <li>Sin protección de privacidad de dominio.</li>
+                                    <li>Muchos complementos son caros.</li>
+                                    <li>La atención al cliente por chat puede tardar mucho en responder.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="text-lg font-bold text-gray-100 mb-2">Extensiones de dominio comunes</h3>
+                    <ul class="list-disc list-inside text-gray-300 leading-relaxed space-y-2">
+                        <li><span class="font-bold text-cyan-400">.com:</span> La más popular y reconocida, ideal para negocios.</li>
+                        <li><span class="font-bold text-cyan-400">.org:</span> Originalmente para organizaciones sin fines de lucro.</li>
+                        <li><span class="font-bold text-cyan-400">.net:</span> Para redes y servicios en línea.</li>
+                        <li><span class="font-bold text-cyan-400">.app, .blog, .store:</span> Extensiones modernas para tipos de sitios específicos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Step 3: Publish -->
+            <section id="content-step3" class="content-section">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-100 mb-4">3. Publica tu sitio web</h2>
+                <p class="text-base text-gray-300 leading-relaxed mb-6">
+                    Una vez que tienes tu plataforma y tu dominio, es hora de asegurarte de que tu sitio esté listo para el mundo.
+                </p>
+
+                <div class="space-y-6">
+                    <!-- Responsive Design -->
+                    <div class="bg-gray-900 rounded-lg p-6 border border-gray-700 shadow-sm">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Diseño adaptable (Responsive Design)</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Asegúrate de que tu sitio se vea bien en cualquier dispositivo, ya sea una computadora, una tablet o un celular. El diseño adaptable es esencial para la experiencia del usuario y para el SEO.
+                        </p>
+                    </div>
+
+                    <!-- Basic SEO -->
+                    <div class="bg-gray-900 rounded-lg p-6 border border-gray-700 shadow-sm">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">SEO Básico (Search Engine Optimization)</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Para que la gente te encuentre en buscadores como Google, optimiza tu contenido. Usa palabras clave relevantes en tus títulos y texto, y asegúrate de que la navegación sea clara.
+                        </p>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="bg-gray-900 rounded-lg p-6 border border-gray-700 shadow-sm">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Conecta con redes sociales</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Integra botones de redes sociales en tu sitio para que los visitantes puedan compartir tu contenido y seguirte. Esto te ayudará a construir una comunidad y a generar tráfico.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 4: AI Tools -->
+            <section id="content-step4" class="content-section">
+                <div class="ai-hero-background text-white rounded-t-xl p-8 md:p-12 text-center shadow-inner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M-1 0 L101 0 L101 101 L-1 101 Z" fill="black" /><g stroke="rgba(255, 255, 255, 0.1)" stroke-width="0.1"><path d="M0 0 L100 0 L100 100 L0 100 Z" fill="none" /><g transform="translate(50,50)"><path d="M-50 0 L50 0 M0 -50 L0 50" /></g><g transform="translate(50,50) rotate(45)"><path d="M-50 0 L50 0 M0 -50 L0 50" /></g><g transform="translate(50,50) rotate(22.5)"><path d="M-50 0 L50 0 M0 -50 L0 50" /></g><g transform="translate(50,50) rotate(67.5)"><path d="M-50 0 L50 0 M0 -50 L0 50" /></g><g stroke-width="0.2"><circle cx="0" cy="0" r="10" /><circle cx="0" cy="0" r="20" /><circle cx="0" cy="0" r="30" /><circle cx="0" cy="0" r="40" /><circle cx="0" cy="0" r="50" /></g></g></svg>');">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 text-cyan-400">Domina el Futuro con IA</h2>
+                    <p class="text-lg md:text-xl font-medium mb-6 opacity-80 text-blue-300">Tu guía para crear una web de calidad con herramientas de inteligencia artificial.</p>
+                    <div class="flex items-center justify-center space-x-2 text-3xl mb-8">
+                        <span class="text-purple-400">🧠</span>
+                        <span class="text-blue-400">🤖</span>
+                        <span class="text-cyan-400">💡</span>
+                    </div>
+                    <button class="bg-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-purple-700">
+                        Crear Ahora
+                    </button>
+                </div>
+                
+                <div class="bg-gray-900 text-gray-100 rounded-b-xl p-6 md:p-10">
+                    <p class="text-base leading-relaxed mb-6">
+                        Utiliza la inteligencia artificial para generar contenido y optimizar tu sitio. A continuación, te mostramos algunas herramientas impulsadas por la IA de Gemini.
+                    </p>
+
+                    <!-- Slogan Generator -->
+                    <div class="ai-tool-card rounded-lg p-6 mb-6 border border-gray-700 shadow-sm">
+                        <h3 class="text-xl font-bold mb-4 text-purple-400">Generador de eslóganes</h3>
+                        <p class="text-sm mb-4 text-gray-300">
+                            Describe tu negocio o proyecto en una sola frase y te ayudaremos a generar eslóganes creativos y atractivos.
+                        </p>
+                        <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+                            <input id="slogan-input" type="text" placeholder="Ej: Venta de galletas artesanales" class="flex-grow w-full md:w-auto p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            <button id="generate-slogan-btn" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md">Generar</button>
+                        </div>
+                        <div id="slogan-loading" class="mt-4 text-center text-gray-400 hidden">Generando eslóganes...</div>
+                        <ul id="slogan-list" class="mt-4 space-y-2 text-gray-200 list-disc list-inside"></ul>
+                        <button id="copy-slogan-btn" class="copy-button mt-4 px-4 py-2 rounded-lg font-semibold text-sm hidden">Copiar eslóganes</button>
+                    </div>
+                    
+                    <!-- Web Content Generator -->
+                    <div class="ai-tool-card rounded-lg p-6 mb-6 border border-gray-700 shadow-sm">
+                        <h3 class="text-xl font-bold mb-4 text-blue-400">Generador de contenido web</h3>
+                        <p class="text-sm mb-4 text-gray-300">
+                            Describe el tema del contenido que necesitas y la IA redactará un párrafo para tu página de inicio, blog o sección "Acerca de".
+                        </p>
+                        <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+                            <input id="content-input" type="text" placeholder="Ej: Contenido sobre el poder de las plantas" class="flex-grow w-full md:w-auto p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <button id="generate-content-btn" class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md">Generar</button>
+                        </div>
+                        <div id="content-loading" class="mt-4 text-center text-gray-400 hidden">Generando contenido...</div>
+                        <p id="content-paragraph" class="mt-4 p-4 bg-gray-800 rounded-lg text-gray-200 leading-relaxed hidden"></p>
+                        <button id="copy-content-btn" class="copy-button mt-4 px-4 py-2 rounded-lg font-semibold text-sm hidden">Copiar contenido</button>
+                    </div>
+
+                    <!-- Prompt Generator -->
+                    <div class="ai-tool-card rounded-lg p-6 mb-6 border border-gray-700 shadow-sm">
+                        <h3 class="text-xl font-bold mb-4 text-cyan-400">Mejorador de prompts</h3>
+                        <p class="text-sm mb-4 text-gray-300">
+                            Describe brevemente lo que quieres que una IA haga y te daremos un prompt detallado para obtener mejores resultados.
+                        </p>
+                        <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+                            <input id="prompt-input" type="text" placeholder="Ej: Ayúdame a organizar un viaje a París" class="flex-grow w-full md:w-auto p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                            <button id="generate-prompt-btn" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md">Generar</button>
+                        </div>
+                        <div id="prompt-loading" class="mt-4 text-center text-gray-400 hidden">Generando prompt...</div>
+                        <p id="prompt-text" class="mt-4 p-4 bg-gray-800 rounded-lg text-gray-200 leading-relaxed hidden"></p>
+                        <button id="copy-prompt-btn" class="copy-button mt-4 px-4 py-2 rounded-lg font-semibold text-sm hidden">Copiar prompt</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = document.querySelectorAll('.nav-button');
+            const contentSections = document.querySelectorAll('.content-section');
+            const sloganInput = document.getElementById('slogan-input');
+            const generateSloganBtn = document.getElementById('generate-slogan-btn');
+            const sloganLoading = document.getElementById('slogan-loading');
+            const sloganList = document.getElementById('slogan-list');
+            const copySloganBtn = document.getElementById('copy-slogan-btn');
+
+            const contentInput = document.getElementById('content-input');
+            const generateContentBtn = document.getElementById('generate-content-btn');
+            const contentLoading = document.getElementById('content-loading');
+            const contentParagraph = document.getElementById('content-paragraph');
+            const copyContentBtn = document.getElementById('copy-content-btn');
+
+            const promptInput = document.getElementById('prompt-input');
+            const generatePromptBtn = document.getElementById('generate-prompt-btn');
+            const promptLoading = document.getElementById('prompt-loading');
+            const promptText = document.getElementById('prompt-text');
+            const copyPromptBtn = document.getElementById('copy-prompt-btn');
+
+            const costChartCtx = document.getElementById('cost-chart').getContext('2d');
+            const costChart = new Chart(costChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Wix', 'Squarespace', 'WordPress.com'],
+                    datasets: [{
+                        label: 'Costo Anual Estimado (MXN)',
+                        data: [2500, 2800, 2000],
+                        backgroundColor: [
+                            'rgba(6, 182, 212, 0.6)',
+                            'rgba(168, 85, 247, 0.6)',
+                            'rgba(34, 211, 238, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(6, 182, 212, 1)',
+                            'rgba(168, 85, 247, 1)',
+                            'rgba(34, 211, 238, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgb(209, 213, 219)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: 'rgb(209, 213, 219)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 0 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // --- Navigation Logic ---
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    const targetSectionId = button.id.replace('nav-', 'content-');
+                    document.getElementById(targetSectionId).classList.add('active');
+                });
+            });
+
+            // --- API Calls and UI updates ---
+            const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=';
+
+            async function generateContent(input, placeholder, loadingElement, outputElement, copyBtn, isList = false, systemPrompt = '') {
+                outputElement.textContent = '';
+                outputElement.classList.add('hidden');
+                copyBtn.classList.add('hidden');
+                loadingElement.classList.remove('hidden');
+
+                const userQuery = input.value;
+                if (!userQuery) {
+                    loadingElement.classList.add('hidden');
+                    return;
+                }
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    tools: [{ "google_search": {} }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
+                };
+
+                const apiKey = "" // Leave as-is
+                try {
+                    const response = await fetch(apiUrl + apiKey, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) throw new Error('API request failed');
+
+                    const result = await response.json();
+                    const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                    if (text) {
+                        if (isList) {
+                            const listItems = text.split('\n').map(item => `<li>${item.replace(/^- /, '')}</li>`).join('');
+                            outputElement.innerHTML = listItems;
+                        } else {
+                            outputElement.textContent = text;
+                        }
+                        outputElement.classList.remove('hidden');
+                        copyBtn.classList.remove('hidden');
+                    } else {
+                        outputElement.textContent = 'No se pudo generar el contenido. Inténtalo de nuevo.';
+                        outputElement.classList.remove('hidden');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    outputElement.textContent = 'Hubo un error al conectar con la IA. Por favor, inténtalo más tarde.';
+                    outputElement.classList.remove('hidden');
+                } finally {
+                    loadingElement.classList.add('hidden');
+                }
+            }
+
+            generateSloganBtn.addEventListener('click', () => {
+                const systemPrompt = "Actúa como un experto en marketing. Genera 5 eslóganes concisos y creativos para el negocio descrito. Los eslóganes deben ser directos y memorables. Responde solo con los eslóganes, uno por línea, sin ninguna otra introducción.";
+                generateContent(sloganInput, 'Generando eslóganes...', sloganLoading, sloganList, copySloganBtn, true, systemPrompt);
+            });
+
+            generateContentBtn.addEventListener('click', () => {
+                const systemPrompt = "Actúa como un redactor de contenidos. Escribe un párrafo de aproximadamente 100 palabras para un sitio web sobre el tema proporcionado. El tono debe ser inspirador y profesional. Responde solo con el párrafo, sin títulos.";
+                generateContent(contentInput, 'Generando contenido...', contentLoading, contentParagraph, copyContentBtn, false, systemPrompt);
+            });
+
+            generatePromptBtn.addEventListener('click', () => {
+                const systemPrompt = "Actúa como un experto en ingeniería de prompts. Convierte la solicitud del usuario en un prompt detallado y optimizado para una IA generadora de texto. El prompt debe ser específico, incluir el rol, el formato de salida deseado, y los detalles clave. Responde solo con el prompt mejorado, sin introducción ni explicación.";
+                generateContent(promptInput, 'Generando prompt...', promptLoading, promptText, copyPromptBtn, false, systemPrompt);
+            });
+            
+            // --- Copy Logic ---
+            copySloganBtn.addEventListener('click', () => {
+                const textToCopy = Array.from(sloganList.children).map(li => li.textContent).join('\n');
+                try {
+                    navigator.clipboard.writeText(textToCopy);
+                    const originalText = copySloganBtn.textContent;
+                    copySloganBtn.textContent = '¡Copiado!';
+                    setTimeout(() => { copySloganBtn.textContent = originalText; }, 2000);
+                } catch (err) {
+                    console.error('Error al copiar al portapapeles:', err);
+                }
+            });
+
+            copyContentBtn.addEventListener('click', () => {
+                const textToCopy = contentParagraph.textContent;
+                try {
+                    navigator.clipboard.writeText(textToCopy);
+                    const originalText = copyContentBtn.textContent;
+                    copyContentBtn.textContent = '¡Copiado!';
+                    setTimeout(() => { copyContentBtn.textContent = originalText; }, 2000);
+                } catch (err) {
+                    console.error('Error al copiar al portapapeles:', err);
+                }
+            });
+
+            copyPromptBtn.addEventListener('click', () => {
+                const textToCopy = promptText.textContent;
+                try {
+                    navigator.clipboard.writeText(textToCopy);
+                    const originalText = copyPromptBtn.textContent;
+                    copyPromptBtn.textContent = '¡Copiado!';
+                    setTimeout(() => { copyPromptBtn.textContent = originalText; }, 2000);
+                } catch (err) {
+                    console.error('Error al copiar al portapapeles:', err);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
