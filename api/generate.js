@@ -1,8 +1,6 @@
 // api/generate.js
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "method_not_allowed" });
-  }
+  if (req.method !== "POST") return res.status(405).json({ error: "method_not_allowed" });
 
   try {
     const { userQuery, systemPrompt = "" } = req.body || {};
@@ -10,7 +8,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "missing_user_query" });
     }
 
-    const apiKey = process.env.GEMINI_API_KEY; // la pondrás en Vercel (paso 3)
+    const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) return res.status(500).json({ error: "missing_api_key_server" });
 
     const apiUrl =
@@ -40,3 +38,4 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "proxy_error", message: String(e) });
   }
 }
+
